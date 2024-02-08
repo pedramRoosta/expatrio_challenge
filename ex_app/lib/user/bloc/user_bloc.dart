@@ -1,15 +1,17 @@
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
+import 'package:ex_app/service/user_service.dart';
 import 'package:ex_app/user/models/user.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:get_it/get_it.dart';
 part 'user_event.dart';
 part 'user_state.dart';
 part 'user_bloc.freezed.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
-  // final UserRepository userRepository;
-
+  final userService = GetIt.I.get<IUserService>();
   UserBloc() : super(UserState()) {
     on<UserEventLogin>(_login);
   }
@@ -17,20 +19,22 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   void _login(
     UserEvent event,
     Emitter<UserState> emit,
-  ) {
-    emit(
-      state.copyWith(
-        user: User(
-          userId: Random().nextInt(1000),
-          userUuid: 'userUuid',
-          lastName: 'lastName',
-          firstName: 'firstName',
-          fullName: 'fullName',
-          email: 'email',
-          role: 'role',
-          isAdmin: false,
+  ) async {
+    try {
+      final user = await userService.login(
+        email: event.email,
+        password: event.password,
+      );
+      emit(
+        state.copyWith(
+          user: user,
         ),
-      ),
-    );
+      );
+    } catch (e) {
+      debugPrint('dojo errol');
+      emit(
+        state.copyWith(userError: 'Error logging in. Please try again.'),
+      );
+    }
   }
 }

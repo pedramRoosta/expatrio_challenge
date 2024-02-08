@@ -1,70 +1,60 @@
+import 'package:ex_app/common/constants.dart';
 import 'package:ex_app/common/widgets/ex_cta_button.dart';
 import 'package:flutter/material.dart';
 
 abstract class ModalHelper {
+  static const bgColor = Color.fromARGB(145, 0, 0, 0);
   static Future<T?> show<T>({
     required BuildContext context,
+    required String acceptButtonText,
     String? title,
     Widget? child,
     void Function()? onAccept,
-    String? acceptButtonText,
-    void Function()? onDismiss,
-    String? dismissButtonText,
     EdgeInsets childPadding = const EdgeInsets.fromLTRB(20, 24, 20, 32),
-    BoxDecoration? modalDecoration,
   }) {
     return showModalBottomSheet<T?>(
+      isDismissible: true, //TODO change to false
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      barrierColor: Colors.transparent,
-      builder: (context) => Padding(
-        padding:
-            EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
-        child: Container(
-          decoration: modalDecoration ??
-              BoxDecoration(
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black26,
-                    spreadRadius: 2,
-                    blurRadius: 6,
-                  )
-                ],
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-          child: Padding(
-            padding: childPadding,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+      backgroundColor: bgColor,
+      barrierColor: bgColor,
+      builder: (context) => Container(
+        decoration: BoxDecoration(
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black26,
+              spreadRadius: 2,
+              blurRadius: 6,
+            )
+          ],
+          borderRadius: BorderRadius.circular(15),
+          color: Colors.white,
+        ),
+        child: Padding(
+          padding: childPadding,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (title != null)
                 Text(
-                  title ?? '',
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  child: SingleChildScrollView(
-                    child: child,
-                  ),
-                ),
-                Row(
-                  children: [
-                    ExCtaButton(
-                      onPressed: onDismiss,
-                      title: 'dismiss',
-                    ),
-                    Flexible(
-                      child: ExCtaButton(
-                        onPressed: onAccept,
-                        title: acceptButtonText ?? '',
-                      ),
-                    ),
-                  ],
+                  title,
                 )
-              ],
-            ),
+              else
+                const Icon(
+                  Icons.check_circle,
+                  color: ColorConst.primaryColor,
+                  size: 65,
+                ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 16),
+                child: child,
+              ),
+              ExCtaButton(
+                onPressed: onAccept,
+                title: acceptButtonText,
+              ),
+            ],
           ),
         ),
       ),

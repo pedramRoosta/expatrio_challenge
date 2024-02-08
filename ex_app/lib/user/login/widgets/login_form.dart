@@ -18,7 +18,8 @@ class _LoginFormState extends State<LoginForm> {
   bool _isFormValid = false;
   @override
   Widget build(BuildContext context) {
-    debugPrint(_isFormValid.toString());
+    emailTextController.text = 'tito+bs792@expatrio.com';
+    passwordTextController.text = 'nemampojma';
     return Form(
       key: _formKey,
       onChanged: () {

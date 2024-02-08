@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 enum TextFieldType { email, password, text }
 
-class ExTextFormField extends StatelessWidget {
+class ExTextFormField extends StatefulWidget {
   const ExTextFormField({
     this.controller,
     this.textFieldType = TextFieldType.text,
@@ -16,6 +16,14 @@ class ExTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextFieldType textFieldType;
   final String validationMessage;
+
+  @override
+  State<ExTextFormField> createState() => _ExTextFormFieldState();
+}
+
+class _ExTextFormFieldState extends State<ExTextFormField> {
+  bool _passwordVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,19 +52,36 @@ class ExTextFormField extends StatelessWidget {
             ],
           ),
           TextFormField(
-            controller: controller,
-            keyboardType: keyboardType,
-            obscureText: textFieldType == TextFieldType.password,
+            controller: widget.controller,
+            keyboardType: widget.keyboardType,
+            obscureText: widget.textFieldType == TextFieldType.password &&
+                !_passwordVisible,
             validator: (value) {
-              if (textFieldType == TextFieldType.email) {
+              if (widget.textFieldType == TextFieldType.email) {
                 return Util.emailValidator(value);
               } else {
                 return Util.passwordValidator(value);
               }
             },
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
+              suffixIcon: widget.textFieldType == TextFieldType.password
+                  ? IconButton(
+                      icon: Icon(
+                        // Based on passwordVisible state choose the icon
+                        _passwordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: Theme.of(context).primaryColorDark,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _passwordVisible = !_passwordVisible;
+                        });
+                      },
+                    )
+                  : null,
               isDense: true,
-              border: OutlineInputBorder(
+              border: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(7),
                 ),
@@ -69,7 +94,7 @@ class ExTextFormField extends StatelessWidget {
   }
 
   IconData? getIcon() {
-    switch (textFieldType) {
+    switch (widget.textFieldType) {
       case TextFieldType.email:
         return Icons.email_outlined;
       case TextFieldType.password:
@@ -80,7 +105,7 @@ class ExTextFormField extends StatelessWidget {
   }
 
   String getTitle() {
-    switch (textFieldType) {
+    switch (widget.textFieldType) {
       case TextFieldType.email:
         return 'EMAIL ADDRESS';
       case TextFieldType.password:
