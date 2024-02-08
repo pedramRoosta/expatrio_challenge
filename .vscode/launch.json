@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "prod",
+            "cwd": "ex_app",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+        }
+    ]
+}
