@@ -18,7 +18,8 @@ dependencies:
   freezed_annotation: ^2.4.1
   flutter_svg: ^2.0.9
   json_annotation: ^4.8.1
-
+  flutter_secure_storage: ^9.0.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
