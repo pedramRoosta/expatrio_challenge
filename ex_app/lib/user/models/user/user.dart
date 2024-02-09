@@ -1,3 +1,4 @@
+import 'package:ex_app/user/models/user_tax_data/user_tax_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';
@@ -16,6 +17,7 @@ class User with _$User {
     required String email,
     required String role,
     required bool isAdmin,
+    UserTaxData? userTaxData,
     @Default([]) List<String> consoleRoles,
   }) = _User;
 

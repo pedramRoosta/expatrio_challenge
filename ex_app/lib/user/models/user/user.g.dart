@@ -15,6 +15,9 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       email: json['email'] as String,
       role: json['role'] as String,
       isAdmin: json['isAdmin'] as bool,
+      userTaxData: json['userTaxData'] == null
+          ? null
+          : UserTaxData.fromJson(json['userTaxData'] as Map<String, dynamic>),
       consoleRoles: (json['consoleRoles'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -31,5 +34,6 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'email': instance.email,
       'role': instance.role,
       'isAdmin': instance.isAdmin,
+      'userTaxData': instance.userTaxData,
       'consoleRoles': instance.consoleRoles,
     };

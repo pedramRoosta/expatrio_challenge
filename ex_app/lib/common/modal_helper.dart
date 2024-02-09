@@ -13,7 +13,7 @@ abstract class ModalHelper {
     EdgeInsets childPadding = const EdgeInsets.fromLTRB(20, 24, 20, 32),
   }) {
     return showModalBottomSheet<T?>(
-      isDismissible: true, //TODO change to false
+      isDismissible: false, //TODO change to false
       context: context,
       isScrollControlled: true,
       backgroundColor: bgColor,

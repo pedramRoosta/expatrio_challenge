@@ -255,8 +255,6 @@ abstract class $UserStateCopyWith<$Res> {
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
   $Res call({User? user, bool isLoading, String? userError});
-
-  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -291,18 +289,6 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
               as String?,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get user {
-    if (_value.user == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.user!, (value) {
-      return _then(_value.copyWith(user: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -314,9 +300,6 @@ abstract class _$$UserStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call({User? user, bool isLoading, String? userError});
-
-  @override
-  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -378,7 +361,7 @@ class _$UserStateImpl extends _UserState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserStateImpl &&
-            (identical(other.user, user) || other.user == user) &&
+            const DeepCollectionEquality().equals(other.user, user) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.userError, userError) ||
@@ -386,7 +369,8 @@ class _$UserStateImpl extends _UserState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, isLoading, userError);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(user), isLoading, userError);
 
   @JsonKey(ignore: true)
   @override

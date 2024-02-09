@@ -28,6 +28,7 @@ mixin _$User {
   String get email => throw _privateConstructorUsedError;
   String get role => throw _privateConstructorUsedError;
   bool get isAdmin => throw _privateConstructorUsedError;
+  UserTaxData? get userTaxData => throw _privateConstructorUsedError;
   List<String> get consoleRoles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +50,10 @@ abstract class $UserCopyWith<$Res> {
       String email,
       String role,
       bool isAdmin,
+      UserTaxData? userTaxData,
       List<String> consoleRoles});
+
+  $UserTaxDataCopyWith<$Res>? get userTaxData;
 }
 
 /// @nodoc
@@ -73,6 +77,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? email = null,
     Object? role = null,
     Object? isAdmin = null,
+    Object? userTaxData = freezed,
     Object? consoleRoles = null,
   }) {
     return _then(_value.copyWith(
@@ -108,11 +113,27 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.isAdmin
           : isAdmin // ignore: cast_nullable_to_non_nullable
               as bool,
+      userTaxData: freezed == userTaxData
+          ? _value.userTaxData
+          : userTaxData // ignore: cast_nullable_to_non_nullable
+              as UserTaxData?,
       consoleRoles: null == consoleRoles
           ? _value.consoleRoles
           : consoleRoles // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserTaxDataCopyWith<$Res>? get userTaxData {
+    if (_value.userTaxData == null) {
+      return null;
+    }
+
+    return $UserTaxDataCopyWith<$Res>(_value.userTaxData!, (value) {
+      return _then(_value.copyWith(userTaxData: value) as $Val);
+    });
   }
 }
 
@@ -132,7 +153,11 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String email,
       String role,
       bool isAdmin,
+      UserTaxData? userTaxData,
       List<String> consoleRoles});
+
+  @override
+  $UserTaxDataCopyWith<$Res>? get userTaxData;
 }
 
 /// @nodoc
@@ -153,6 +178,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? email = null,
     Object? role = null,
     Object? isAdmin = null,
+    Object? userTaxData = freezed,
     Object? consoleRoles = null,
   }) {
     return _then(_$UserImpl(
@@ -188,6 +214,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.isAdmin
           : isAdmin // ignore: cast_nullable_to_non_nullable
               as bool,
+      userTaxData: freezed == userTaxData
+          ? _value.userTaxData
+          : userTaxData // ignore: cast_nullable_to_non_nullable
+              as UserTaxData?,
       consoleRoles: null == consoleRoles
           ? _value._consoleRoles
           : consoleRoles // ignore: cast_nullable_to_non_nullable
@@ -208,6 +238,7 @@ class _$UserImpl extends _User {
       required this.email,
       required this.role,
       required this.isAdmin,
+      this.userTaxData,
       final List<String> consoleRoles = const []})
       : _consoleRoles = consoleRoles,
         super._();
@@ -231,6 +262,8 @@ class _$UserImpl extends _User {
   final String role;
   @override
   final bool isAdmin;
+  @override
+  final UserTaxData? userTaxData;
   final List<String> _consoleRoles;
   @override
   @JsonKey()
@@ -242,7 +275,7 @@ class _$UserImpl extends _User {
 
   @override
   String toString() {
-    return 'User(userId: $userId, userUuid: $userUuid, lastName: $lastName, firstName: $firstName, fullName: $fullName, email: $email, role: $role, isAdmin: $isAdmin, consoleRoles: $consoleRoles)';
+    return 'User(userId: $userId, userUuid: $userUuid, lastName: $lastName, firstName: $firstName, fullName: $fullName, email: $email, role: $role, isAdmin: $isAdmin, userTaxData: $userTaxData, consoleRoles: $consoleRoles)';
   }
 
   @override
@@ -262,6 +295,8 @@ class _$UserImpl extends _User {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.isAdmin, isAdmin) || other.isAdmin == isAdmin) &&
+            (identical(other.userTaxData, userTaxData) ||
+                other.userTaxData == userTaxData) &&
             const DeepCollectionEquality()
                 .equals(other._consoleRoles, _consoleRoles));
   }
@@ -278,6 +313,7 @@ class _$UserImpl extends _User {
       email,
       role,
       isAdmin,
+      userTaxData,
       const DeepCollectionEquality().hash(_consoleRoles));
 
   @JsonKey(ignore: true)
@@ -304,6 +340,7 @@ abstract class _User extends User {
       required final String email,
       required final String role,
       required final bool isAdmin,
+      final UserTaxData? userTaxData,
       final List<String> consoleRoles}) = _$UserImpl;
   const _User._() : super._();
 
@@ -325,6 +362,8 @@ abstract class _User extends User {
   String get role;
   @override
   bool get isAdmin;
+  @override
+  UserTaxData? get userTaxData;
   @override
   List<String> get consoleRoles;
   @override
