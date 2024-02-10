@@ -19,16 +19,19 @@ dependencies:
   flutter_svg: ^2.0.9
   json_annotation: ^4.8.1
   flutter_secure_storage: ^9.0.0
-  
+  flutter_form_builder: ^9.2.1
+  mocktail: ^1.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   build_runner: ^2.4.8
   json_serializable: ^6.7.1
+  golden_toolkit: ^0.15.0
+  bloc_test: ^9.0.2
+  
 flutter:
   uses-material-design: true
 
   assets:
     - assets/images/
-    # - assets/images/crying_girl.svg

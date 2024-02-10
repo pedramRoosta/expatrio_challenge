@@ -6,6 +6,23 @@
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart",
-        }
+        },
+        {
+            "name": "ex_app test update goldens",
+            "cwd": "ex_app",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define",
+                "--update-goldens",
+            ],
+            "codeLens": {
+                "for": [
+                    "run-test",
+                    "run-test-file",
+                ],
+                "title": "${debugType} (update goldens)"
+            },
+        },
     ]
 }

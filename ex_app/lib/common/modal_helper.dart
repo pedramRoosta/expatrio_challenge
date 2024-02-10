@@ -6,14 +6,14 @@ abstract class ModalHelper {
   static const bgColor = Color.fromARGB(145, 0, 0, 0);
   static Future<T?> show<T>({
     required BuildContext context,
-    required String acceptButtonText,
+    String? acceptButtonText,
     String? title,
     Widget? child,
     void Function()? onAccept,
     EdgeInsets childPadding = const EdgeInsets.fromLTRB(20, 24, 20, 32),
   }) {
     return showModalBottomSheet<T?>(
-      isDismissible: false, //TODO change to false
+      isDismissible: false,
       context: context,
       isScrollControlled: true,
       backgroundColor: bgColor,
@@ -37,23 +37,26 @@ abstract class ModalHelper {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               if (title != null)
-                Text(
-                  title,
-                )
+                Text(title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ))
               else
                 const Icon(
                   Icons.check_circle,
-                  color: ColorConst.primaryColor,
+                  color: ColorConstants.primaryColor,
                   size: 65,
                 ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 16),
                 child: child,
               ),
-              ExCtaButton(
-                onPressed: onAccept,
-                title: acceptButtonText,
-              ),
+              if (acceptButtonText != null)
+                ExCtaButton(
+                  onPressed: onAccept,
+                  title: acceptButtonText,
+                ),
             ],
           ),
         ),
