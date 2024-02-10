@@ -1,14 +1,19 @@
 import 'package:ex_app/common/util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 enum TextFieldType { email, password, text }
 
-class ExTextFormField extends StatefulWidget {
-  const ExTextFormField({
+class ExTextField extends StatefulWidget {
+  const ExTextField({
+    required this.name,
+    this.onChange,
     this.controller,
     this.textFieldType = TextFieldType.text,
     this.keyboardType,
     this.validationMessage = 'Please check your data and try again.',
+    this.initialValue,
+    this.title,
     super.key,
   });
 
@@ -16,20 +21,23 @@ class ExTextFormField extends StatefulWidget {
   final TextInputType? keyboardType;
   final TextFieldType textFieldType;
   final String validationMessage;
-
+  final String? initialValue;
+  final String? title;
+  final String name;
+  final void Function(String?)? onChange;
   @override
-  State<ExTextFormField> createState() => _ExTextFormFieldState();
+  State<ExTextField> createState() => _ExTextFieldState();
 }
 
-class _ExTextFormFieldState extends State<ExTextFormField> {
+class _ExTextFieldState extends State<ExTextField> {
   bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Column(
-        children: [
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (widget.textFieldType != TextFieldType.text)
           Row(
             children: [
               Padding(
@@ -51,45 +59,63 @@ class _ExTextFormFieldState extends State<ExTextFormField> {
               ),
             ],
           ),
-          TextFormField(
-            controller: widget.controller,
-            keyboardType: widget.keyboardType,
-            obscureText: widget.textFieldType == TextFieldType.password &&
-                !_passwordVisible,
-            validator: (value) {
-              if (widget.textFieldType == TextFieldType.email) {
-                return Util.emailValidator(value);
-              } else {
-                return Util.passwordValidator(value);
-              }
-            },
-            decoration: InputDecoration(
-              suffixIcon: widget.textFieldType == TextFieldType.password
-                  ? IconButton(
-                      icon: Icon(
-                        // Based on passwordVisible state choose the icon
-                        _passwordVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                        color: Theme.of(context).primaryColorDark,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _passwordVisible = !_passwordVisible;
-                        });
-                      },
-                    )
-                  : null,
-              isDense: true,
-              border: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(7),
-                ),
+        if (widget.title != null)
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Text(
+              widget.title!,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
-        ],
-      ),
+        FormBuilderTextField(
+          onChanged: widget.onChange,
+          name: widget.name,
+          initialValue: widget.initialValue,
+          controller: widget.controller,
+          keyboardType: widget.keyboardType,
+          obscureText: widget.textFieldType == TextFieldType.password &&
+              !_passwordVisible,
+          validator: (value) {
+            if (widget.textFieldType == TextFieldType.email) {
+              return Util.emailValidator(value);
+            } else if (widget.textFieldType == TextFieldType.password) {
+              return Util.passwordValidator(value);
+            } else {
+              if (value == null || value.isEmpty) {
+                return 'Please enter your data';
+              }
+              return null;
+            }
+          },
+          decoration: InputDecoration(
+            suffixIcon: widget.textFieldType == TextFieldType.password
+                ? IconButton(
+                    icon: Icon(
+                      // Based on passwordVisible state choose the icon
+                      _passwordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: Theme.of(context).primaryColorDark,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _passwordVisible = !_passwordVisible;
+                      });
+                    },
+                  )
+                : null,
+            isDense: true,
+            border: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(7),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 

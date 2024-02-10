@@ -10,6 +10,11 @@ enum AssetConstants {
   final String path;
 }
 
+abstract class AppConstants {
+  static final GlobalKey<NavigatorState> rootNavigatorKey =
+      GlobalKey<NavigatorState>(debugLabel: 'root');
+}
+
 abstract class ColorConstants {
   static const primaryColor = Color.fromARGB(255, 67, 172, 161);
 }
@@ -18,6 +23,29 @@ abstract class KeyConstants {
   static const loginEmailField = 'login_email';
   static const loginPasswordField = 'login_password';
   static const loginBtn = 'login_btn';
+}
+
+abstract class StringConstants {
+  static const email = 'email';
+  static const password = 'password';
+  static const validEmailMessage = 'Please enter a valid email address.';
+  static const successfulLoginMessage = 'Successful Login';
+  static const successfulLoginExtraMessage =
+      'You will be redirected to your dashboard';
+  static const loginBtn = 'LOGIN';
+  static const gotItText = 'GOT IT';
+  static const save = 'SAVE';
+  static const searchContryHint = 'Search for a country';
+  static const declarationTitle = 'Declaration of financial information';
+  static const selectCountryTitle = 'Select Country';
+  static const taxIdNumberTitle = 'Tax Indentification number';
+  static const addAnotherCountry = '+ ADD ANOTHER';
+  static const addNewCountry = '+ ADD NEW ONE';
+  static const removeCountry = '- REMOVE';
+  static const usPersonConfirmationText =
+      'I confirme above tax residency and US self-declaration is true and accurate';
+  static const taxInfoUpdatedSuccessfullyMessage =
+      'Tax information updated successfully!';
 }
 
 abstract class CountriesConstants {
