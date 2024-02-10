@@ -8,18 +8,21 @@ part of 'user_tax_data.dart';
 
 _$UserTaxDataImpl _$$UserTaxDataImplFromJson(Map<String, dynamic> json) =>
     _$UserTaxDataImpl(
-      primaryUserTax: json['primaryUserTax'] == null
+      usPerson: json['usPerson'] as bool? ?? false,
+      primaryTaxResidence: json['primaryTaxResidence'] == null
           ? null
-          : UserTax.fromJson(json['primaryUserTax'] as Map<String, dynamic>),
-      secondaryUserTax: (json['secondaryUserTax'] as List<dynamic>?)
+          : UserTax.fromJson(
+              json['primaryTaxResidence'] as Map<String, dynamic>),
+      secondaryTaxResidence: (json['secondaryTaxResidence'] as List<dynamic>?)
           ?.map((e) => UserTax.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$$UserTaxDataImplToJson(_$UserTaxDataImpl instance) =>
     <String, dynamic>{
-      'primaryUserTax': instance.primaryUserTax,
-      'secondaryUserTax': instance.secondaryUserTax,
+      'usPerson': instance.usPerson,
+      'primaryTaxResidence': instance.primaryTaxResidence,
+      'secondaryTaxResidence': instance.secondaryTaxResidence,
     };
 
 _$UserTaxImpl _$$UserTaxImplFromJson(Map<String, dynamic> json) =>

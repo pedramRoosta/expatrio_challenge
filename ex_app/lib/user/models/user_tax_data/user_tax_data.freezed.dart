@@ -20,8 +20,10 @@ UserTaxData _$UserTaxDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserTaxData {
-  UserTax? get primaryUserTax => throw _privateConstructorUsedError;
-  List<UserTax>? get secondaryUserTax => throw _privateConstructorUsedError;
+  bool get usPerson => throw _privateConstructorUsedError;
+  UserTax? get primaryTaxResidence => throw _privateConstructorUsedError;
+  List<UserTax>? get secondaryTaxResidence =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +37,12 @@ abstract class $UserTaxDataCopyWith<$Res> {
           UserTaxData value, $Res Function(UserTaxData) then) =
       _$UserTaxDataCopyWithImpl<$Res, UserTaxData>;
   @useResult
-  $Res call({UserTax? primaryUserTax, List<UserTax>? secondaryUserTax});
+  $Res call(
+      {bool usPerson,
+      UserTax? primaryTaxResidence,
+      List<UserTax>? secondaryTaxResidence});
 
-  $UserTaxCopyWith<$Res>? get primaryUserTax;
+  $UserTaxCopyWith<$Res>? get primaryTaxResidence;
 }
 
 /// @nodoc
@@ -53,30 +58,35 @@ class _$UserTaxDataCopyWithImpl<$Res, $Val extends UserTaxData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? primaryUserTax = freezed,
-    Object? secondaryUserTax = freezed,
+    Object? usPerson = null,
+    Object? primaryTaxResidence = freezed,
+    Object? secondaryTaxResidence = freezed,
   }) {
     return _then(_value.copyWith(
-      primaryUserTax: freezed == primaryUserTax
-          ? _value.primaryUserTax
-          : primaryUserTax // ignore: cast_nullable_to_non_nullable
+      usPerson: null == usPerson
+          ? _value.usPerson
+          : usPerson // ignore: cast_nullable_to_non_nullable
+              as bool,
+      primaryTaxResidence: freezed == primaryTaxResidence
+          ? _value.primaryTaxResidence
+          : primaryTaxResidence // ignore: cast_nullable_to_non_nullable
               as UserTax?,
-      secondaryUserTax: freezed == secondaryUserTax
-          ? _value.secondaryUserTax
-          : secondaryUserTax // ignore: cast_nullable_to_non_nullable
+      secondaryTaxResidence: freezed == secondaryTaxResidence
+          ? _value.secondaryTaxResidence
+          : secondaryTaxResidence // ignore: cast_nullable_to_non_nullable
               as List<UserTax>?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UserTaxCopyWith<$Res>? get primaryUserTax {
-    if (_value.primaryUserTax == null) {
+  $UserTaxCopyWith<$Res>? get primaryTaxResidence {
+    if (_value.primaryTaxResidence == null) {
       return null;
     }
 
-    return $UserTaxCopyWith<$Res>(_value.primaryUserTax!, (value) {
-      return _then(_value.copyWith(primaryUserTax: value) as $Val);
+    return $UserTaxCopyWith<$Res>(_value.primaryTaxResidence!, (value) {
+      return _then(_value.copyWith(primaryTaxResidence: value) as $Val);
     });
   }
 }
@@ -89,10 +99,13 @@ abstract class _$$UserTaxDataImplCopyWith<$Res>
       __$$UserTaxDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserTax? primaryUserTax, List<UserTax>? secondaryUserTax});
+  $Res call(
+      {bool usPerson,
+      UserTax? primaryTaxResidence,
+      List<UserTax>? secondaryTaxResidence});
 
   @override
-  $UserTaxCopyWith<$Res>? get primaryUserTax;
+  $UserTaxCopyWith<$Res>? get primaryTaxResidence;
 }
 
 /// @nodoc
@@ -106,17 +119,22 @@ class __$$UserTaxDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? primaryUserTax = freezed,
-    Object? secondaryUserTax = freezed,
+    Object? usPerson = null,
+    Object? primaryTaxResidence = freezed,
+    Object? secondaryTaxResidence = freezed,
   }) {
     return _then(_$UserTaxDataImpl(
-      primaryUserTax: freezed == primaryUserTax
-          ? _value.primaryUserTax
-          : primaryUserTax // ignore: cast_nullable_to_non_nullable
+      usPerson: null == usPerson
+          ? _value.usPerson
+          : usPerson // ignore: cast_nullable_to_non_nullable
+              as bool,
+      primaryTaxResidence: freezed == primaryTaxResidence
+          ? _value.primaryTaxResidence
+          : primaryTaxResidence // ignore: cast_nullable_to_non_nullable
               as UserTax?,
-      secondaryUserTax: freezed == secondaryUserTax
-          ? _value._secondaryUserTax
-          : secondaryUserTax // ignore: cast_nullable_to_non_nullable
+      secondaryTaxResidence: freezed == secondaryTaxResidence
+          ? _value._secondaryTaxResidence
+          : secondaryTaxResidence // ignore: cast_nullable_to_non_nullable
               as List<UserTax>?,
     ));
   }
@@ -126,29 +144,34 @@ class __$$UserTaxDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserTaxDataImpl extends _UserTaxData {
   const _$UserTaxDataImpl(
-      {this.primaryUserTax, final List<UserTax>? secondaryUserTax})
-      : _secondaryUserTax = secondaryUserTax,
+      {this.usPerson = false,
+      this.primaryTaxResidence,
+      final List<UserTax>? secondaryTaxResidence})
+      : _secondaryTaxResidence = secondaryTaxResidence,
         super._();
 
   factory _$UserTaxDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserTaxDataImplFromJson(json);
 
   @override
-  final UserTax? primaryUserTax;
-  final List<UserTax>? _secondaryUserTax;
+  @JsonKey()
+  final bool usPerson;
   @override
-  List<UserTax>? get secondaryUserTax {
-    final value = _secondaryUserTax;
+  final UserTax? primaryTaxResidence;
+  final List<UserTax>? _secondaryTaxResidence;
+  @override
+  List<UserTax>? get secondaryTaxResidence {
+    final value = _secondaryTaxResidence;
     if (value == null) return null;
-    if (_secondaryUserTax is EqualUnmodifiableListView)
-      return _secondaryUserTax;
+    if (_secondaryTaxResidence is EqualUnmodifiableListView)
+      return _secondaryTaxResidence;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'UserTaxData(primaryUserTax: $primaryUserTax, secondaryUserTax: $secondaryUserTax)';
+    return 'UserTaxData(usPerson: $usPerson, primaryTaxResidence: $primaryTaxResidence, secondaryTaxResidence: $secondaryTaxResidence)';
   }
 
   @override
@@ -156,16 +179,18 @@ class _$UserTaxDataImpl extends _UserTaxData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserTaxDataImpl &&
-            (identical(other.primaryUserTax, primaryUserTax) ||
-                other.primaryUserTax == primaryUserTax) &&
+            (identical(other.usPerson, usPerson) ||
+                other.usPerson == usPerson) &&
+            (identical(other.primaryTaxResidence, primaryTaxResidence) ||
+                other.primaryTaxResidence == primaryTaxResidence) &&
             const DeepCollectionEquality()
-                .equals(other._secondaryUserTax, _secondaryUserTax));
+                .equals(other._secondaryTaxResidence, _secondaryTaxResidence));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, primaryUserTax,
-      const DeepCollectionEquality().hash(_secondaryUserTax));
+  int get hashCode => Object.hash(runtimeType, usPerson, primaryTaxResidence,
+      const DeepCollectionEquality().hash(_secondaryTaxResidence));
 
   @JsonKey(ignore: true)
   @override
@@ -183,17 +208,20 @@ class _$UserTaxDataImpl extends _UserTaxData {
 
 abstract class _UserTaxData extends UserTaxData {
   const factory _UserTaxData(
-      {final UserTax? primaryUserTax,
-      final List<UserTax>? secondaryUserTax}) = _$UserTaxDataImpl;
+      {final bool usPerson,
+      final UserTax? primaryTaxResidence,
+      final List<UserTax>? secondaryTaxResidence}) = _$UserTaxDataImpl;
   const _UserTaxData._() : super._();
 
   factory _UserTaxData.fromJson(Map<String, dynamic> json) =
       _$UserTaxDataImpl.fromJson;
 
   @override
-  UserTax? get primaryUserTax;
+  bool get usPerson;
   @override
-  List<UserTax>? get secondaryUserTax;
+  UserTax? get primaryTaxResidence;
+  @override
+  List<UserTax>? get secondaryTaxResidence;
   @override
   @JsonKey(ignore: true)
   _$$UserTaxDataImplCopyWith<_$UserTaxDataImpl> get copyWith =>

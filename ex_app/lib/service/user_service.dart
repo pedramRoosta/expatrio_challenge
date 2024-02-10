@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:ex_app/service/secure_storage.dart';
 import 'package:ex_app/user/models/user/user.dart';
 import 'package:ex_app/user/models/user_tax_data/user_tax_data.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 abstract class IUserService {
@@ -18,8 +19,12 @@ abstract class IUserService {
     required String email,
     required String password,
   });
-  Future<UserTaxData> userTaxData({
+  Future<UserTaxData> getUserTaxData({
     required int userId,
+  });
+  Future<void> updateUserTaxData({
+    required int userId,
+    required Map<String, dynamic> data,
   });
 }
 
@@ -47,7 +52,7 @@ class UserService extends IUserService {
   }
 
   @override
-  Future<UserTaxData> userTaxData({required int userId}) async {
+  Future<UserTaxData> getUserTaxData({required int userId}) async {
     final token = await storageService.read(key: SecureStorageKey.token.key);
     dio.options.headers['content-Type'] = 'application/json';
     dio.options.headers["authorization"] = "Bearer $token";
@@ -57,5 +62,19 @@ class UserService extends IUserService {
     final userTaxData =
         UserTaxData.fromJson(response.data as Map<String, dynamic>);
     return userTaxData;
+  }
+
+  @override
+  Future<void> updateUserTaxData({
+    required int userId,
+    required Map<String, dynamic> data,
+  }) async {
+    final token = await storageService.read(key: SecureStorageKey.token.key);
+    dio.options.headers['content-Type'] = 'application/json';
+    dio.options.headers["authorization"] = "Bearer $token";
+    await dio.put(
+      'v3/customers/$userId/tax-data',
+      data: data,
+    );
   }
 }

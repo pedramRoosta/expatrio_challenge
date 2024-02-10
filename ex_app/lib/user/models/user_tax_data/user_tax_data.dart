@@ -8,8 +8,9 @@ class UserTaxData with _$UserTaxData {
   const UserTaxData._();
 
   const factory UserTaxData({
-    UserTax? primaryUserTax,
-    List<UserTax>? secondaryUserTax,
+    @Default(false) bool usPerson,
+    UserTax? primaryTaxResidence,
+    List<UserTax>? secondaryTaxResidence,
   }) = _UserTaxData;
 
   factory UserTaxData.fromJson(Map<String, Object?> json) =>

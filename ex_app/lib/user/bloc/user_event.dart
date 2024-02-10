@@ -6,4 +6,8 @@ class UserEvent with _$UserEvent {
     required String email,
     required String password,
   }) = UserEventLogin;
+
+  const factory UserEvent.updateTaxInfo({
+    required Map<String, dynamic> taxData,
+  }) = UserEventUpdateTaxInfo;
 }

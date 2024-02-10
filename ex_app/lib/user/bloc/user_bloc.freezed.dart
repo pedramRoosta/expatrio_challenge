@@ -16,43 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UserEvent {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password) login,
+    required TResult Function(Map<String, dynamic> taxData) updateTaxInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password)? login,
+    TResult? Function(Map<String, dynamic> taxData)? updateTaxInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password)? login,
+    TResult Function(Map<String, dynamic> taxData)? updateTaxInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserEventLogin value) login,
+    required TResult Function(UserEventUpdateTaxInfo value) updateTaxInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserEventLogin value)? login,
+    TResult? Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserEventLogin value)? login,
+    TResult Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $UserEventCopyWith<UserEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +60,6 @@ mixin _$UserEvent {
 abstract class $UserEventCopyWith<$Res> {
   factory $UserEventCopyWith(UserEvent value, $Res Function(UserEvent) then) =
       _$UserEventCopyWithImpl<$Res, UserEvent>;
-  @useResult
-  $Res call({String email, String password});
 }
 
 /// @nodoc
@@ -73,33 +71,13 @@ class _$UserEventCopyWithImpl<$Res, $Val extends UserEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$UserEventLoginImplCopyWith<$Res>
-    implements $UserEventCopyWith<$Res> {
+abstract class _$$UserEventLoginImplCopyWith<$Res> {
   factory _$$UserEventLoginImplCopyWith(_$UserEventLoginImpl value,
           $Res Function(_$UserEventLoginImpl) then) =
       __$$UserEventLoginImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String email, String password});
 }
@@ -170,6 +148,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password) login,
+    required TResult Function(Map<String, dynamic> taxData) updateTaxInfo,
   }) {
     return login(email, password);
   }
@@ -178,6 +157,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password)? login,
+    TResult? Function(Map<String, dynamic> taxData)? updateTaxInfo,
   }) {
     return login?.call(email, password);
   }
@@ -186,6 +166,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password)? login,
+    TResult Function(Map<String, dynamic> taxData)? updateTaxInfo,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -198,6 +179,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UserEventLogin value) login,
+    required TResult Function(UserEventUpdateTaxInfo value) updateTaxInfo,
   }) {
     return login(this);
   }
@@ -206,6 +188,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserEventLogin value)? login,
+    TResult? Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
   }) {
     return login?.call(this);
   }
@@ -214,6 +197,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserEventLogin value)? login,
+    TResult Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -228,14 +212,157 @@ abstract class UserEventLogin implements UserEvent {
       {required final String email,
       required final String password}) = _$UserEventLoginImpl;
 
-  @override
   String get email;
-  @override
   String get password;
-  @override
   @JsonKey(ignore: true)
   _$$UserEventLoginImplCopyWith<_$UserEventLoginImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UserEventUpdateTaxInfoImplCopyWith<$Res> {
+  factory _$$UserEventUpdateTaxInfoImplCopyWith(
+          _$UserEventUpdateTaxInfoImpl value,
+          $Res Function(_$UserEventUpdateTaxInfoImpl) then) =
+      __$$UserEventUpdateTaxInfoImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> taxData});
+}
+
+/// @nodoc
+class __$$UserEventUpdateTaxInfoImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$UserEventUpdateTaxInfoImpl>
+    implements _$$UserEventUpdateTaxInfoImplCopyWith<$Res> {
+  __$$UserEventUpdateTaxInfoImplCopyWithImpl(
+      _$UserEventUpdateTaxInfoImpl _value,
+      $Res Function(_$UserEventUpdateTaxInfoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? taxData = null,
+  }) {
+    return _then(_$UserEventUpdateTaxInfoImpl(
+      taxData: null == taxData
+          ? _value._taxData
+          : taxData // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UserEventUpdateTaxInfoImpl implements UserEventUpdateTaxInfo {
+  const _$UserEventUpdateTaxInfoImpl(
+      {required final Map<String, dynamic> taxData})
+      : _taxData = taxData;
+
+  final Map<String, dynamic> _taxData;
+  @override
+  Map<String, dynamic> get taxData {
+    if (_taxData is EqualUnmodifiableMapView) return _taxData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_taxData);
+  }
+
+  @override
+  String toString() {
+    return 'UserEvent.updateTaxInfo(taxData: $taxData)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserEventUpdateTaxInfoImpl &&
+            const DeepCollectionEquality().equals(other._taxData, _taxData));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_taxData));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserEventUpdateTaxInfoImplCopyWith<_$UserEventUpdateTaxInfoImpl>
+      get copyWith => __$$UserEventUpdateTaxInfoImplCopyWithImpl<
+          _$UserEventUpdateTaxInfoImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) login,
+    required TResult Function(Map<String, dynamic> taxData) updateTaxInfo,
+  }) {
+    return updateTaxInfo(taxData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? login,
+    TResult? Function(Map<String, dynamic> taxData)? updateTaxInfo,
+  }) {
+    return updateTaxInfo?.call(taxData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? login,
+    TResult Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    required TResult orElse(),
+  }) {
+    if (updateTaxInfo != null) {
+      return updateTaxInfo(taxData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserEventLogin value) login,
+    required TResult Function(UserEventUpdateTaxInfo value) updateTaxInfo,
+  }) {
+    return updateTaxInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UserEventLogin value)? login,
+    TResult? Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+  }) {
+    return updateTaxInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserEventLogin value)? login,
+    TResult Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    required TResult orElse(),
+  }) {
+    if (updateTaxInfo != null) {
+      return updateTaxInfo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserEventUpdateTaxInfo implements UserEvent {
+  const factory UserEventUpdateTaxInfo(
+          {required final Map<String, dynamic> taxData}) =
+      _$UserEventUpdateTaxInfoImpl;
+
+  Map<String, dynamic> get taxData;
+  @JsonKey(ignore: true)
+  _$$UserEventUpdateTaxInfoImplCopyWith<_$UserEventUpdateTaxInfoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -255,6 +382,8 @@ abstract class $UserStateCopyWith<$Res> {
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
   $Res call({User? user, bool isLoading, String? userError});
+
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -289,6 +418,18 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
               as String?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -300,6 +441,9 @@ abstract class _$$UserStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call({User? user, bool isLoading, String? userError});
+
+  @override
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -361,7 +505,7 @@ class _$UserStateImpl extends _UserState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserStateImpl &&
-            const DeepCollectionEquality().equals(other.user, user) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.userError, userError) ||
@@ -369,8 +513,7 @@ class _$UserStateImpl extends _UserState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(user), isLoading, userError);
+  int get hashCode => Object.hash(runtimeType, user, isLoading, userError);
 
   @JsonKey(ignore: true)
   @override
