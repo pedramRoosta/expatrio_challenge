@@ -30,34 +30,36 @@ abstract class ModalHelper {
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
         ),
-        child: Padding(
-          padding: childPadding,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              if (title != null)
-                Text(title,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ))
-              else
-                const Icon(
-                  Icons.check_circle,
-                  color: ColorConstants.primaryColor,
-                  size: 65,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: childPadding,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (title != null)
+                  Text(title,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ))
+                else
+                  const Icon(
+                    Icons.check_circle,
+                    color: ColorConstants.primaryColor,
+                    size: 65,
+                  ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 16),
+                  child: child,
                 ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 16),
-                child: child,
-              ),
-              if (acceptButtonText != null)
-                ExCtaButton(
-                  onPressed: onAccept,
-                  title: acceptButtonText,
-                ),
-            ],
+                if (acceptButtonText != null)
+                  ExCtaButton(
+                    onPressed: onAccept,
+                    title: acceptButtonText,
+                  ),
+              ],
+            ),
           ),
         ),
       ),

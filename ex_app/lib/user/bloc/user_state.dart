@@ -11,6 +11,6 @@ class UserState with _$UserState {
   }) = _UserState;
 
   bool get isLoggedIn {
-    return user?.userId != null;
+    return user != null;
   }
 }

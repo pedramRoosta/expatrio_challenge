@@ -1,3 +1,4 @@
+import 'package:ex_app/common/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginSuccessfulWidget extends StatelessWidget {
@@ -8,13 +9,13 @@ class LoginSuccessfulWidget extends StatelessWidget {
     return const Column(
       children: [
         Text(
-          'Successful Login',
+          StringConstants.successfulLoginMessage,
           style: TextStyle(
             fontSize: 20,
           ),
         ),
         Text(
-          'You will be redirected to your dashboard',
+          StringConstants.successfulLoginExtraMessage,
           style: TextStyle(
             color: Colors.black,
           ),

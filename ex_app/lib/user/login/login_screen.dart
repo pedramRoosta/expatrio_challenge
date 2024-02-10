@@ -1,5 +1,6 @@
 import 'package:ex_app/common/constants.dart';
 import 'package:ex_app/common/modal_helper.dart';
+import 'package:ex_app/common/widgets/ex_loading_spinner.dart';
 import 'package:ex_app/service/router.dart';
 import 'package:ex_app/user/bloc/user_bloc.dart';
 import 'package:ex_app/user/login/widgets/login_form.dart';
@@ -23,11 +24,13 @@ class LoginScreen extends StatelessWidget {
                     context: context,
                     child: const LoginSuccessfulWidget(),
                     onAccept: () => context.go(Routes.editTax.path),
-                    acceptButtonText: 'GOT IT');
+                    acceptButtonText: StringConstants.gotItText);
               } else if (state.userError != null) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(state.userError!),
-                ));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(state.userError!),
+                  ),
+                );
               }
             },
             child: Container(),
@@ -44,16 +47,26 @@ class LoginScreen extends StatelessWidget {
                 vertical: 40.0,
                 horizontal: 50,
               ),
-              child: Column(
-                children: [
-                  Image.asset(
-                    AssetConstants.logo.path,
-                    width: 250,
-                  ),
-                  const LoginForm(),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Image.asset(
+                      AssetConstants.logo.path,
+                      width: 250,
+                    ),
+                    const LoginForm(),
+                  ],
+                ),
               ),
             ),
+          ),
+          BlocBuilder<UserBloc, UserState>(
+            builder: (context, state) {
+              if (state.isLoading) {
+                return const ExLoadingSpinner();
+              }
+              return Container();
+            },
           ),
         ],
       ),

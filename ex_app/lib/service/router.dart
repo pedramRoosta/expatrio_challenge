@@ -1,3 +1,4 @@
+import 'package:ex_app/common/constants.dart';
 import 'package:ex_app/user/login/login_screen.dart';
 import 'package:ex_app/screen_template/base_screen.dart';
 import 'package:ex_app/user/bloc/user_bloc.dart';
@@ -7,6 +8,7 @@ import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
   initialLocation: Routes.login.path,
+  navigatorKey: AppConstants.rootNavigatorKey,
   routes: [
     ShellRoute(
       routes: shellRoutes,

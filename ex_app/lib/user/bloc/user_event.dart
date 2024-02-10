@@ -10,4 +10,6 @@ class UserEvent with _$UserEvent {
   const factory UserEvent.updateTaxInfo({
     required Map<String, dynamic> taxData,
   }) = UserEventUpdateTaxInfo;
+
+  const factory UserEvent.logout() = UserEventLogout;
 }

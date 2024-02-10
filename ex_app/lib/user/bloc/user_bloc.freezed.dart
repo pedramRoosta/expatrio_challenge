@@ -20,18 +20,21 @@ mixin _$UserEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password) login,
     required TResult Function(Map<String, dynamic> taxData) updateTaxInfo,
+    required TResult Function() logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password)? login,
     TResult? Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    TResult? Function()? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password)? login,
     TResult Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    TResult Function()? logout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$UserEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(UserEventLogin value) login,
     required TResult Function(UserEventUpdateTaxInfo value) updateTaxInfo,
+    required TResult Function(UserEventLogout value) logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserEventLogin value)? login,
     TResult? Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    TResult? Function(UserEventLogout value)? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserEventLogin value)? login,
     TResult Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    TResult Function(UserEventLogout value)? logout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password) login,
     required TResult Function(Map<String, dynamic> taxData) updateTaxInfo,
+    required TResult Function() logout,
   }) {
     return login(email, password);
   }
@@ -158,6 +165,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password)? login,
     TResult? Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    TResult? Function()? logout,
   }) {
     return login?.call(email, password);
   }
@@ -167,6 +175,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password)? login,
     TResult Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    TResult Function()? logout,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -180,6 +189,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   TResult map<TResult extends Object?>({
     required TResult Function(UserEventLogin value) login,
     required TResult Function(UserEventUpdateTaxInfo value) updateTaxInfo,
+    required TResult Function(UserEventLogout value) logout,
   }) {
     return login(this);
   }
@@ -189,6 +199,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserEventLogin value)? login,
     TResult? Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    TResult? Function(UserEventLogout value)? logout,
   }) {
     return login?.call(this);
   }
@@ -198,6 +209,7 @@ class _$UserEventLoginImpl implements UserEventLogin {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserEventLogin value)? login,
     TResult Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    TResult Function(UserEventLogout value)? logout,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -296,6 +308,7 @@ class _$UserEventUpdateTaxInfoImpl implements UserEventUpdateTaxInfo {
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password) login,
     required TResult Function(Map<String, dynamic> taxData) updateTaxInfo,
+    required TResult Function() logout,
   }) {
     return updateTaxInfo(taxData);
   }
@@ -305,6 +318,7 @@ class _$UserEventUpdateTaxInfoImpl implements UserEventUpdateTaxInfo {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password)? login,
     TResult? Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    TResult? Function()? logout,
   }) {
     return updateTaxInfo?.call(taxData);
   }
@@ -314,6 +328,7 @@ class _$UserEventUpdateTaxInfoImpl implements UserEventUpdateTaxInfo {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email, String password)? login,
     TResult Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    TResult Function()? logout,
     required TResult orElse(),
   }) {
     if (updateTaxInfo != null) {
@@ -327,6 +342,7 @@ class _$UserEventUpdateTaxInfoImpl implements UserEventUpdateTaxInfo {
   TResult map<TResult extends Object?>({
     required TResult Function(UserEventLogin value) login,
     required TResult Function(UserEventUpdateTaxInfo value) updateTaxInfo,
+    required TResult Function(UserEventLogout value) logout,
   }) {
     return updateTaxInfo(this);
   }
@@ -336,6 +352,7 @@ class _$UserEventUpdateTaxInfoImpl implements UserEventUpdateTaxInfo {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UserEventLogin value)? login,
     TResult? Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    TResult? Function(UserEventLogout value)? logout,
   }) {
     return updateTaxInfo?.call(this);
   }
@@ -345,6 +362,7 @@ class _$UserEventUpdateTaxInfoImpl implements UserEventUpdateTaxInfo {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UserEventLogin value)? login,
     TResult Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    TResult Function(UserEventLogout value)? logout,
     required TResult orElse(),
   }) {
     if (updateTaxInfo != null) {
@@ -363,6 +381,114 @@ abstract class UserEventUpdateTaxInfo implements UserEvent {
   @JsonKey(ignore: true)
   _$$UserEventUpdateTaxInfoImplCopyWith<_$UserEventUpdateTaxInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UserEventLogoutImplCopyWith<$Res> {
+  factory _$$UserEventLogoutImplCopyWith(_$UserEventLogoutImpl value,
+          $Res Function(_$UserEventLogoutImpl) then) =
+      __$$UserEventLogoutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserEventLogoutImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$UserEventLogoutImpl>
+    implements _$$UserEventLogoutImplCopyWith<$Res> {
+  __$$UserEventLogoutImplCopyWithImpl(
+      _$UserEventLogoutImpl _value, $Res Function(_$UserEventLogoutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserEventLogoutImpl implements UserEventLogout {
+  const _$UserEventLogoutImpl();
+
+  @override
+  String toString() {
+    return 'UserEvent.logout()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserEventLogoutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email, String password) login,
+    required TResult Function(Map<String, dynamic> taxData) updateTaxInfo,
+    required TResult Function() logout,
+  }) {
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email, String password)? login,
+    TResult? Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    TResult? Function()? logout,
+  }) {
+    return logout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, String password)? login,
+    TResult Function(Map<String, dynamic> taxData)? updateTaxInfo,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserEventLogin value) login,
+    required TResult Function(UserEventUpdateTaxInfo value) updateTaxInfo,
+    required TResult Function(UserEventLogout value) logout,
+  }) {
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UserEventLogin value)? login,
+    TResult? Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    TResult? Function(UserEventLogout value)? logout,
+  }) {
+    return logout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserEventLogin value)? login,
+    TResult Function(UserEventUpdateTaxInfo value)? updateTaxInfo,
+    TResult Function(UserEventLogout value)? logout,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserEventLogout implements UserEvent {
+  const factory UserEventLogout() = _$UserEventLogoutImpl;
 }
 
 /// @nodoc

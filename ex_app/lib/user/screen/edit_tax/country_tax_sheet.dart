@@ -1,3 +1,4 @@
+import 'package:ex_app/common/constants.dart';
 import 'package:flutter/material.dart';
 
 class CoutryTaxSheet extends StatefulWidget {
@@ -27,7 +28,7 @@ class _CoutryTaxSheetState extends State<CoutryTaxSheet> {
         TextField(
           onChanged: (value) => searchContries(searchTerm: value),
           decoration: const InputDecoration(
-            hintText: 'Search for a country',
+            hintText: StringConstants.searchContryHint,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(7),
