@@ -1,17 +1,21 @@
-# ex_app
+# Expatrio code challenge
 
-a Flutter application for Expatrio that implements a login page, a screen with
-a Call-to-Action (CTA) to update tax data, and a bottom sheet for inputting and editing tax data.
+## Descriptions
 
-## Getting Started
+The project is contained in a folder called 'expatrio', clone it, the folder inside it called ex_app which is the project.
+You can run it in vscode or android studio which is configured to run flutter app
 
-This project is a starting point for a Flutter application.
+### File structure
 
-A few resources to get you started if this is your first Flutter project:
+* ### common folder: 
+    contains the common things across the project like : String constants, utility functions and widgets
+* ### screen_template: 
+    holds the base screens that provides a specific template- in this case the screens that have scaffold and appbar
+* ### service: 
+    holds all the services through the app, like router service, user service and ...
+* ### user: 
+    holds all the things related to the user, like data models, blocs, screens and ...
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Tests
+You can find test files inside test folder
