@@ -72,6 +72,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       emit(
         state.copyWith(
           isLoading: true,
+          userError: null,
         ),
       );
       await userService.updateUserTaxData(
