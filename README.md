@@ -18,4 +18,4 @@ You can run it in vscode or android studio which is configured to run flutter ap
 
 
 ### Tests
-You can find test files inside test folder
+You can find test files inside test folde. tests contain the widget tests for login-screen and bloc-tests for User-bloc. <ins> Due to lack of time, I couldn't write more tests to cover all aspect of the app</ins>
