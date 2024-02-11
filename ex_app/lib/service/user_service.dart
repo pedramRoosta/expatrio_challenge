@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:ex_app/service/secure_storage.dart';
 import 'package:ex_app/user/models/user/user.dart';
 import 'package:ex_app/user/models/user_tax_data/user_tax_data.dart';
-import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 abstract class IUserService {
